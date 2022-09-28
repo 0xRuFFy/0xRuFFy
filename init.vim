@@ -18,6 +18,8 @@ Plug 'https://github.com/ryanoasis/vim-devicons'
 Plug 'http://github.com/preservim/tagbar'
 Plug 'http://github.com/terryma/vim-multiple-cursors'
 Plug 'http://github.com/neoclide/coc.nvim'
+Plug 'github/copilot.vim'
+Plug 'sheerun/vim-polyglot'
 
 call plug#end()
 
@@ -31,4 +33,6 @@ inoremap <exr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
 
 :colorscheme gruvbox
 :hi Normal ctermbg=None " only for windows terminal (use windows terminal bg color for opacity) 
+
+let NERDTreeShowHidden=1
 
