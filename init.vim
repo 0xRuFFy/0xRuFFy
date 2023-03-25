@@ -23,12 +23,16 @@ Plug 'github/copilot.vim'
 Plug 'sheerun/vim-polyglot'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'folke/todo-comments.nvim'
+Plug 'akinsho/bufferline.nvim', { 'tag': 'v3.*' }
 
 call plug#end()
 
 nnoremap <C-n> :NERDTreeFocus<CR>
 nnoremap <C-f> :NERDTreeFind<CR>
 nnoremap <C-t> :NERDTreeToggle<CR>
+nnoremap <S-l> :bnext<CR>
+nnoremap <S-h> :bprevious<CR>
+nnoremap <S-d> :bdelete<CR>
 
 inoremap <silent><expr> <tab> coc#pum#visible() ? coc#pum#confirm() : "\<tab>"
 
@@ -55,12 +59,28 @@ endif
 let g:gruvbox_contrast_dark = 'hard'
 let g:gruvbox_contrast_light = 'hard'
 colorscheme gruvbox
-" :hi Normal ctermbg=None " only for windows terminal (use windows terminal bg color for opacity) 
+:hi Normal ctermbg=None " only for windows terminal (use windows terminal bg color for opacity) 
 
 let NERDTreeShowHidden=1
 let NERDTreeMinimalUI=1
 
 lua << EOF
-	require('todo-comments').setup {
-	}
+  require('todo-comments').setup {}
+  require('bufferline').setup {
+    options = {
+      numbers = "ordinal",
+      diagnostics = "coc",
+      diagnostics_indicator = function(count, level, diagnostics_dict, context)
+        local s = " "
+        for e, n in pairs(diagnostics_dict) do
+          if e == "error" then
+            s = s .. " " .. n
+          elseif e == "warning" then
+            s = s .. " " .. n
+          end
+        end
+        return s
+      end,
+    }    
+  }
 EOF
