@@ -69,14 +69,16 @@ if (empty($TMUX))
 endif
 
 
-"let g:gruvbox_contrast_dark = 'hard'
+" let g:gruvbox_contrast_dark = 'hard'
 "let g:gruvbox_contrast_light = 'hard'
-"colorscheme gruvbox
-colorscheme yowish
-"colorscheme badwolf
-":hi Normal ctermbg=None " only for windows terminal (use windows terminal bg color for opacity) 
+" colorscheme gruvbox
+colorscheme hybrid
 highlight Normal guibg=none
 highlight Normal ctermbg=none
+highlight NonText guibg=none
+highlight NonText ctermbg=none
+au ColorScheme * hi Normal ctermbg=none guibg=none
+au ColorScheme myspecialcolors hi Normal ctermbg=red guibg=red
 
 let NERDTreeShowHidden=1
 let NERDTreeMinimalUI=1
