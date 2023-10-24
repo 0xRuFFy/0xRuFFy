@@ -28,6 +28,9 @@ Plug 'akinsho/bufferline.nvim', { 'tag': 'v3.*' }
 Plug 'https://github.com/sjl/badwolf'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.4' }
+Plug 'rust-lang/rust.vim'
+Plug 'prabirshrestha/vim-lsp'
+Plug 'kdheepak/lazygit.nvim'
 
 call plug#end()
 
@@ -44,6 +47,7 @@ nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 
 inoremap <silent><expr> <tab> coc#pum#visible() ? coc#pum#confirm() : "\<tab>"
 nnoremap <silent> ca <cmd>lua vim.lsp.buf.code_action()<CR>
+nnoremap <silent> <leader>gg :LazyGit<CR>
 
 nmap <F8> :TagbarToggle<CR>
 
@@ -76,6 +80,7 @@ highlight Normal ctermbg=none
 
 let NERDTreeShowHidden=1
 let NERDTreeMinimalUI=1
+let g:rustfmt_autosave = 1
 
 lua << EOF
   require('todo-comments').setup {}
