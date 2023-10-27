@@ -72,7 +72,7 @@ endif
 " let g:gruvbox_contrast_dark = 'hard'
 "let g:gruvbox_contrast_light = 'hard'
 " colorscheme gruvbox
-colorscheme hybrid
+colorscheme embark
 highlight Normal guibg=none
 highlight Normal ctermbg=none
 highlight NonText guibg=none
