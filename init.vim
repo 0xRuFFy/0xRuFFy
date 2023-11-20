@@ -25,7 +25,7 @@ Plug 'nvim-lua/plenary.nvim'
 Plug 'folke/todo-comments.nvim'
 Plug 'akinsho/bufferline.nvim', { 'tag': 'v3.*' }
 Plug 'nvim-lua/plenary.nvim'
-Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.4' }
+Plug 'nvim-telescope/telescope.nvim', { 'branch': '0.1.x' }
 Plug 'rust-lang/rust.vim'
 Plug 'prabirshrestha/vim-lsp'
 Plug 'kdheepak/lazygit.nvim'
@@ -35,6 +35,7 @@ Plug 'embark-theme/vim', { 'as': 'embark', 'branch': 'main' }
 Plug 'nvim-lua/plenary.nvim'
 Plug 'saecki/crates.nvim', { 'tag': 'v0.4.0' }
 Plug 'ful1e5/onedark.nvim'
+Plug 'lewis6991/gitsigns.nvim'
 
 call plug#end()
 
@@ -83,22 +84,20 @@ colorscheme onedark
 let g:onedark_transparent = "true"
 let g:onedark_transparent_sidebar = "true"
 
-highlight Normal guibg=none
-highlight Normal ctermbg=none
-highlight NonText guibg=none
-highlight NonText ctermbg=none
-highlight LineNr guibg=none
-highlight LineNr ctermbg=none
-highlight NormalNC guibg=none
-highlight NormalNC ctermbg=none
-highlight NormalFloat guibg=none
-highlight NormalFloat ctermbg=none
-highlight EndOfBuffer guibg=none
-highlight EndOfBuffer ctermbg=none
-highlight TelescopeNormal guibg=none
-highlight TelescopeNormal ctermbg=none
-highlight TelescopeBorder guibg=none
-highlight TelescopeBorder ctermbg=none
+
+highlight Normal guibg=none ctermbg=none
+highlight NonText guibg=none ctermbg=none
+highlight LineNr guibg=none ctermbg=none
+highlight SignColumn guibg=none ctermbg=none
+highlight SignColumnSB guibg=none ctermbg=none
+highlight NormalNC guibg=none ctermbg=none
+highlight NormalFloat guibg=none ctermbg=none
+highlight EndOfBuffer guibg=none ctermbg=none
+highlight TelescopeNormal guibg=none ctermbg=none
+highlight TelescopeBorder guibg=none ctermbg=none
+highlight GitSignsAdd guibg=none
+highlight GitSignsDelete guibg=none
+highlight GitSignsChange guibg=none
 
 au ColorScheme * hi Normal ctermbg=none guibg=none
 au ColorScheme myspecialcolors hi Normal ctermbg=red guibg=red
@@ -110,6 +109,7 @@ let g:rustfmt_autosave = 1
 set tags=tags;/
 
 lua << EOF
+  require('gitsigns').setup()
   require('crates').setup()
   require('todo-comments').setup {}
   require('bufferline').setup {
