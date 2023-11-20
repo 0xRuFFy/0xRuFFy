@@ -13,7 +13,6 @@ Plug 'https://github.com/preservim/nerdtree'
 Plug 'https://github.com/tpope/vim-surround'
 Plug 'https://github.com/tpope/vim-commentary'
 Plug 'http://github.com/ap/vim-css-color'
-Plug 'http://github.com/rafi/awesome-vim-colorschemes'
 Plug 'https://github.com/ryanoasis/vim-devicons'
 Plug 'KabbAmine/yowish.vim'
 Plug 'http://github.com/preservim/tagbar'
@@ -25,12 +24,17 @@ Plug 'sheerun/vim-polyglot'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'folke/todo-comments.nvim'
 Plug 'akinsho/bufferline.nvim', { 'tag': 'v3.*' }
-Plug 'https://github.com/sjl/badwolf'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.4' }
 Plug 'rust-lang/rust.vim'
 Plug 'prabirshrestha/vim-lsp'
 Plug 'kdheepak/lazygit.nvim'
+Plug 'https://github.com/neovim/nvim-lspconfig'
+Plug 'https://github.com/simrat39/rust-tools.nvim'
+Plug 'embark-theme/vim', { 'as': 'embark', 'branch': 'main' }
+Plug 'nvim-lua/plenary.nvim'
+Plug 'saecki/crates.nvim', { 'tag': 'v0.4.0' }
+Plug 'ful1e5/onedark.nvim'
 
 call plug#end()
 
@@ -70,13 +74,32 @@ endif
 
 
 " let g:gruvbox_contrast_dark = 'hard'
-"let g:gruvbox_contrast_light = 'hard'
+" let g:gruvbox_contrast_light = 'hard'
 " colorscheme gruvbox
-colorscheme embark
+" colorscheme hybrid
+" colorscheme embark
+
+colorscheme onedark
+let g:onedark_transparent = "true"
+let g:onedark_transparent_sidebar = "true"
+
 highlight Normal guibg=none
 highlight Normal ctermbg=none
 highlight NonText guibg=none
 highlight NonText ctermbg=none
+highlight LineNr guibg=none
+highlight LineNr ctermbg=none
+highlight NormalNC guibg=none
+highlight NormalNC ctermbg=none
+highlight NormalFloat guibg=none
+highlight NormalFloat ctermbg=none
+highlight EndOfBuffer guibg=none
+highlight EndOfBuffer ctermbg=none
+highlight TelescopeNormal guibg=none
+highlight TelescopeNormal ctermbg=none
+highlight TelescopeBorder guibg=none
+highlight TelescopeBorder ctermbg=none
+
 au ColorScheme * hi Normal ctermbg=none guibg=none
 au ColorScheme myspecialcolors hi Normal ctermbg=red guibg=red
 
@@ -84,7 +107,10 @@ let NERDTreeShowHidden=1
 let NERDTreeMinimalUI=1
 let g:rustfmt_autosave = 1
 
+set tags=tags;/
+
 lua << EOF
+  require('crates').setup()
   require('todo-comments').setup {}
   require('bufferline').setup {
     options = {
