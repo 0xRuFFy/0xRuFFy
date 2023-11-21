@@ -129,4 +129,17 @@ lua << EOF
       end,
     }    
   }
+  require("telescope").setup({
+    defaults = {
+        -- `hidden = true` is not supported in text grep commands.
+        hidden = true,
+        vimgrep_arguments = vimgrep_arguments,
+    },
+    pickers = {
+        find_files= {
+            hidden = true,
+            find_command = { "rg", "--files", "--hidden", "--glob", "!**/.git/*" },
+        },
+     },
+})
 EOF
