@@ -36,6 +36,7 @@ Plug 'nvim-lua/plenary.nvim'
 Plug 'saecki/crates.nvim', { 'tag': 'v0.4.0' }
 Plug 'ful1e5/onedark.nvim'
 Plug 'lewis6991/gitsigns.nvim'
+Plug 'ribru17/bamboo.nvim'
 
 call plug#end()
 
@@ -84,6 +85,7 @@ colorscheme onedark
 let g:onedark_transparent = "true"
 let g:onedark_transparent_sidebar = "true"
 
+colorscheme bamboo
 
 highlight Normal guibg=none ctermbg=none
 highlight NonText guibg=none ctermbg=none
