@@ -40,6 +40,7 @@ Plug 'ribru17/bamboo.nvim'
 
 call plug#end()
 
+nnoremap <A-1> :Vexplore<CR>
 nnoremap <C-n> :NERDTreeFocus<CR>
 nnoremap <C-f> :NERDTreeFind<CR>
 nnoremap <C-t> :NERDTreeToggle<CR>
