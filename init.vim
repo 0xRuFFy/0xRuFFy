@@ -16,7 +16,7 @@ Plug 'http://github.com/ap/vim-css-color'
 Plug 'https://github.com/ryanoasis/vim-devicons'
 Plug 'KabbAmine/yowish.vim'
 Plug 'http://github.com/preservim/tagbar'
-Plug 'http://github.com/terryma/vim-multiple-cursors'
+Plug 'mg979/vim-visual-multi', {'branch': 'master'}
 Plug 'http://github.com/neoclide/coc.nvim'
 Plug 'https://github.com/Raimondi/delimitMate'
 Plug 'github/copilot.vim'
@@ -82,9 +82,9 @@ endif
 " colorscheme hybrid
 " colorscheme embark
 
-colorscheme onedark
-let g:onedark_transparent = "true"
-let g:onedark_transparent_sidebar = "true"
+" colorscheme onedark
+" let g:onedark_transparent = "true"
+" let g:onedark_transparent_sidebar = "true"
 
 colorscheme bamboo
 
