@@ -19,7 +19,6 @@ Plug 'http://github.com/preservim/tagbar'
 Plug 'mg979/vim-visual-multi', {'branch': 'master'}
 Plug 'http://github.com/neoclide/coc.nvim'
 Plug 'https://github.com/Raimondi/delimitMate'
-Plug 'github/copilot.vim'
 Plug 'sheerun/vim-polyglot'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'folke/todo-comments.nvim'
@@ -37,6 +36,7 @@ Plug 'saecki/crates.nvim', { 'tag': 'v0.4.0' }
 Plug 'ful1e5/onedark.nvim'
 Plug 'lewis6991/gitsigns.nvim'
 Plug 'ribru17/bamboo.nvim'
+Plug 'Exafunction/codeium.vim'
 
 call plug#end()
 
@@ -53,10 +53,12 @@ nnoremap <leader>fb <cmd>Telescope buffers<cr>
 nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 
 inoremap <silent><expr> <tab> coc#pum#visible() ? coc#pum#confirm() : "\<tab>"
-nnoremap <silent> ca <cmd>lua vim.lsp.buf.code_action()<CR>
 nnoremap <silent> <leader>gg :LazyGit<CR>
 
 nmap <F8> :TagbarToggle<CR>
+nmap <leader>a  <Plug>(coc-codeaction-selected)
+nmap <leader>ac  <Plug>(coc-codeaction-cursor)
+
 
 
 "Use 24-bit (true-color) mode in Vim/Neovim when outside tmux.
