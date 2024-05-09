@@ -33,10 +33,12 @@ Plug 'https://github.com/simrat39/rust-tools.nvim'
 Plug 'embark-theme/vim', { 'as': 'embark', 'branch': 'main' }
 Plug 'nvim-lua/plenary.nvim'
 Plug 'saecki/crates.nvim', { 'tag': 'v0.4.0' }
-Plug 'ful1e5/onedark.nvim'
 Plug 'lewis6991/gitsigns.nvim'
 Plug 'ribru17/bamboo.nvim'
-Plug 'Exafunction/codeium.vim'
+Plug 'morhetz/gruvbox'
+" Plug 'Exafunction/codeium.vim'
+Plug 'github/copilot.vim'
+Plug 'sainnhe/everforest'
 
 call plug#end()
 
@@ -53,11 +55,10 @@ nnoremap <leader>fb <cmd>Telescope buffers<cr>
 nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 
 inoremap <silent><expr> <TAB> coc#pum#visible() ? coc#pum#confirm() : "\<TAB>"
-nnoremap <silent> <leader>gg :LazyGit<CR>
+nnoremap <silent><leader>gg :LazyGit<CR>
 
 nmap <F8> :TagbarToggle<CR>
 nmap <leader>a  <Plug>(coc-codeaction-selected)
-nmap <leader>ac  <Plug>(coc-codeaction-cursor)
 
 
 
@@ -81,14 +82,9 @@ endif
 " let g:gruvbox_contrast_dark = 'hard'
 " let g:gruvbox_contrast_light = 'hard'
 " colorscheme gruvbox
-" colorscheme hybrid
-" colorscheme embark
 
-" colorscheme onedark
-" let g:onedark_transparent = "true"
-" let g:onedark_transparent_sidebar = "true"
-
-colorscheme bamboo
+colorscheme everforest
+" colorscheme bamboo
 
 highlight Normal guibg=none ctermbg=none
 highlight NonText guibg=none ctermbg=none
@@ -100,9 +96,9 @@ highlight NormalFloat guibg=none ctermbg=none
 highlight EndOfBuffer guibg=none ctermbg=none
 highlight TelescopeNormal guibg=none ctermbg=none
 highlight TelescopeBorder guibg=none ctermbg=none
-highlight GitSignsAdd guibg=none
-highlight GitSignsDelete guibg=none
-highlight GitSignsChange guibg=none
+highlight GitSignsAdd guibg=none ctermbg=none
+highlight GitSignsDelete guibg=none ctermbg=none
+highlight GitSignsChange guibg=none ctermbg=none
 
 au ColorScheme * hi Normal ctermbg=none guibg=none
 au ColorScheme myspecialcolors hi Normal ctermbg=red guibg=red
